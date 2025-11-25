@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://3hidj3ncuck1"]
+
+[ext_resource type="Script" uid="uid://dqkrx83b16sty" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://bijmh0ig5tg8w" path="res://assets/images/tilemap/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="2_con2f"]
+[ext_resource type="Texture2D" uid="uid://btcvkf0edoccj" path="res://assets/images/tilemap/Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="3_mhnvy"]
+
+[sub_resource type="FontFile" id="FontFile_4ytvr"]
+cache/0/37/0/ascent = 0.0
+cache/0/37/0/descent = 0.0
+cache/0/37/0/underline_position = 0.0
+cache/0/37/0/underline_thickness = 0.0
+cache/0/37/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_g3eks"]
+font = SubResource("FontFile_4ytvr")
+font_size = 37
+font_color = Color(0.2, 0.572549, 0.352941, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqeox")
+
+[node name="Bg3" type="Sprite2D" parent="."]
+position = Vector2(572.5, 322.5)
+scale = Vector2(0.558105, 1.6175)
+texture = ExtResource("2_con2f")
+
+[node name="Bg2" type="Sprite2D" parent="."]
+position = Vector2(572, 323)
+scale = Vector2(0.629609, 1.605)
+texture = ExtResource("3_mhnvy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -294.0
+offset_right = 21.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.25142, 1.40531)
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+text = "Commencer"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+text = "Quitter"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -253.0
+offset_top = 250.0
+offset_right = 254.0
+offset_bottom = 300.0
+grow_horizontal = 2
+text = "Trouver Monsieur Champignon"
+label_settings = SubResource("LabelSettings_g3eks")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

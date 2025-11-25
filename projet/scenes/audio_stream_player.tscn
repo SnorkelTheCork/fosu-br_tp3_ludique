@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcuav10ep2tqt"]
+
+[ext_resource type="AudioStream" uid="uid://co1m7q6ymptqv" path="res://assets/audio/magic-fantasy-fairy-tale-music-431276.mp3" id="1_6eoa2"]
+[ext_resource type="Script" uid="uid://drfjga4qk8eky" path="res://scripts/audio_stream_player.gd" id="1_nbeep"]
+
+[node name="audio_player" type="AudioStreamPlayer"]
+stream = ExtResource("1_6eoa2")
+autoplay = true
+script = ExtResource("1_nbeep")

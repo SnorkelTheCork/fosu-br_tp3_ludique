@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqp4b177ck3ah"]
+
+[ext_resource type="Texture2D" uid="uid://dohu7w5wu3y6r" path="res://assets/images/tilemap/Fantasy Swamp Forest/Free/Free.png" id="1_830kt"]
+[ext_resource type="Script" uid="uid://bdydy0kk4x816" path="res://scripts/level_01.gd" id="1_pmlnk"]
+[ext_resource type="PackedScene" uid="uid://cto63l6cwrtug" path="res://scenes/player.tscn" id="2_cgbdd"]
+[ext_resource type="PackedScene" uid="uid://bsrty30gryip4" path="res://scenes/portal.tscn" id="3_m5641"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmlnk"]
+size = Vector2(47, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgbdd"]
+size = Vector2(59, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5641"]
+size = Vector2(32, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edq1u"]
+size = Vector2(80, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5em7"]
+size = Vector2(240, 20)
+
+[node name="Level02" type="Node2D" node_paths=PackedStringArray("level_start_pos")]
+script = ExtResource("1_pmlnk")
+level_start_pos = NodePath("PlayerStart")
+
+[node name="Free" type="Sprite2D" parent="."]
+position = Vector2(574, 234)
+scale = Vector2(0.576389, 1.625)
+texture = ExtResource("1_830kt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(81, 622, 196, 624, 206, 597, 233, 597, 243, 571, 287, 571, 302, 544, 379, 544, 394, 517, 452, 519, 462, 547, 481, 546, 490, 578, 508, 574, 519, 602, 551, 602, 552, 650, 792, 650, 791, 573, 851, 572, 861, 547, 978, 546, 1001, 491, 1037, 491, 1055, 444, 1148, 444, 1147, -6, -7, -2, 3, 237, 30, 378, 30, 411, 12, 439, 21, 623, 30, 598, 39, 598, 48, 572, 67, 572, 82, 621, 10, 631, -29, -50, 1166, -32, 1172, 660, 77, 666)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(379, 448)
+shape = SubResource("RectangleShape2D_pmlnk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(449, 400)
+shape = SubResource("RectangleShape2D_pmlnk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(665, 448)
+shape = SubResource("RectangleShape2D_pmlnk")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(745, 476)
+shape = SubResource("RectangleShape2D_cgbdd")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(812, 424)
+shape = SubResource("RectangleShape2D_m5641")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(892, 399)
+shape = SubResource("RectangleShape2D_edq1u")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(672, 634)
+shape = SubResource("RectangleShape2D_n5em7")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(298, 390, 323, 391, 339, 434, 339, 458, 286, 460, 283, 433)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(530, 361, 591, 362, 608, 409, 603, 460, 516, 462, 513, 405)
+
+[node name="PlayerStart" type="Node2D" parent="."]
+position = Vector2(104, 597)
+
+[node name="Player" parent="." instance=ExtResource("2_cgbdd")]
+position = Vector2(106, 600)
+
+[node name="Portal" parent="." instance=ExtResource("3_m5641")]
+position = Vector2(1125, 406)
